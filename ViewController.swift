@@ -8,20 +8,13 @@
 import UIKit
 import CoreData
 
-// URLSession을 통해 가져올 상품의 Decodable Model 입니다.
-struct RemoteProduct: Decodable {
-    let id: Int
-    let title: String
-    let description: String
-    let price: Double
-    let thumbnail: URL
-}
 
 class ViewController: UIViewController {
+    
+    
+    //coreData
+    var context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 
-    var persistentContainer: NSPersistentContainer? {
-        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-    }
     
     // currentProduct가 set되면, imageView. titleLabel, descriptionLabel, priceLabel에 각각 적절한 값을 지정합니다.
     private var currentProduct: RemoteProduct? = nil {
@@ -110,10 +103,12 @@ class ViewController: UIViewController {
 
         try? context.save()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchRemoteProduct()
     }
+    
+    
 }
 
