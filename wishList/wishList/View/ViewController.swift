@@ -15,8 +15,6 @@ class ViewController: UIViewController {
     var persistentContainer: NSPersistentContainer? {
             (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
         }
-        
-    
     // currentProduct가 set되면, imageView. titleLabel, descriptionLabel, priceLabel에 각각 적절한 값을 지정합니다.
     private var currentProduct: RemoteProduct? = nil {
         didSet {
