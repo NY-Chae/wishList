@@ -58,8 +58,8 @@ class ViewController: UIViewController {
                 identifier: "WishListViewController"
             ) as? WishListViewController else { return }
         
-        // WishListViewController를 present 합니다.
-        self.present(nextVC, animated: true)
+        // WishListViewController를 present 합니다. 객체화 시킨거로 넘어가겠다..
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     // URLSession을 통해 RemoteProduct를 가져와 currentProduct 변수에 저장합니다.
