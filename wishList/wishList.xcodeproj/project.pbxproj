@@ -48,6 +48,7 @@
 		B9491FF62BCADFFD0099CEDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B94C3B942BC7B25000FD719D /* ViewController.swift */,
 				B94C3BA42BC7B98900FD719D /* WishListViewController.swift */,
 			);
 			path = Controller;
@@ -97,7 +98,6 @@
 		B9BB0B312BC9187C00BEED64 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B94C3B942BC7B25000FD719D /* ViewController.swift */,
 				B94C3B962BC7B25000FD719D /* Main.storyboard */,
 			);
 			path = View;

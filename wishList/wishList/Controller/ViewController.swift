@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     
     
     var persistentContainer: NSPersistentContainer? {
-            (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-        }
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    }
     // currentProduct가 set되면, imageView. titleLabel, descriptionLabel, priceLabel에 각각 적절한 값을 지정합니다.
     private var currentProduct: RemoteProduct? = nil {
         didSet {
@@ -60,6 +60,7 @@ class ViewController: UIViewController {
         
         // WishListViewController를 present 합니다. 객체화 시킨거로 넘어가겠다..
         self.navigationController?.pushViewController(nextVC, animated: true)
+        // self.present(nextVC, animated: true)
     }
     
     // URLSession을 통해 RemoteProduct를 가져와 currentProduct 변수에 저장합니다.
@@ -87,27 +88,26 @@ class ViewController: UIViewController {
             task.resume()
         }
     }
-
+    
     // currentProduct를 가져와 Core Data에 저장합니다.
     private func saveWishProduct() {
         guard let context = self.persistentContainer?.viewContext else { return }
-
+        
         guard let currentProduct = self.currentProduct else { return }
-
+        
         let wishProduct = Product(context: context)
         
         wishProduct.id = Int64(currentProduct.id)
         wishProduct.title = currentProduct.title
         wishProduct.price = currentProduct.price
-
+        
         try? context.save()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchRemoteProduct()
         
-        print("실행되어라!")
     }
     
     
